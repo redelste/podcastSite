@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bungee+Inline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color:#e8f4ff;
+    /* font-family: 'Anton', sans-serif;  */
+    font-family: 'Bungee Shade', cursive;
+    font-size: larger;
+ }
+/* Basic styles to create uniformity throughout the project. 
+   All elements should at least have this "basic" styling, 
+*/
+
+@media (max-width:960px) {  
+    .episode-icon{
+        width: 210px;
+        height: 210px;
+    }
+}
+
+@media (min-width:960px) { 
+    .episode-icon{
+        width: 310px;
+        height: 310px;
+    }
+}
+@media (min-width: 969px){
+    .logo-rect{
+        width: 290px;
+        height: 64px;
+    }
+}
+
+@media (max-width: 969px){
+    .logo-rect{
+        width: 290px;
+        height: 64px;
+    }
+}
+.color-force{
+    background-color: #ffe554 !important;
+    color: #53b0ff !important;
+}
+.basic{
+    text-align: center;
+    margin: 2% 0px 4%;
+    color: #ff759c;
+}
+/* Transition on hover. Uses the "basic" class as an prerequisite. */
+div.basic:hover{
+    transition:opacity 0.6s ease;
+    opacity: 0.3;
+    text-decoration: none;
+}
+/* Formatting of the titles.  */
+.titles{
+    text-align: center;
+    letter-spacing: 3px;
+}
+/* Color of the titles: H1, H2 etc. */
+.title-color{
+    /* color: #ff759c; */
+    color: white;
+    background: #ff759c;
+}
+/* The individual element page formatting */
+.data-display{
+    color: #53b0ff !important;
+    text-align: center;
+    font-size: x-large;
+}
+
+.remove-underline{
+    text-decoration: none;
+}
+
+.text-link {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-colors{
+    background: #ffe554 !important;
+}
+
+.nav-colors:hover{
+    transition: background-color 0.5s ease !important;
+    background-color: #fff1a1 !important;
+}
+
+.sidenav---sidenav-toggle---1KRjR{
+    color: blue !important;
+}
