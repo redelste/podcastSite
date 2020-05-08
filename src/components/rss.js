@@ -1,63 +1,45 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Loader from "./Loader"
 
 export class rss extends Component {
   constructor(props) {
     super(props);
     this.state = {
       rssCasts: [],
-      currentListing: 0
-    }
+      currentListing: 0,
+    };
   }
 
   componentDidMount = () => {
-    fetch('https://feed.podbean.com/nintynine100/feed.xml')
-      .then(response => response.text())
-      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-      .then(data => {
-        console.log(data, "=====================================");
-
-        const items = data.querySelectorAll("item");
-        items.forEach(el => {
-        console.log(el.querySelector("image"), "---------------------")
-          let x = el.querySelector('image')
-          x.getAttribute("href")
-          console.log("xxxxxxxx", el)
-          console.log("XXXXXXXXXXXX", x)
-          this.setState({ rssCasts: el })
+    fetch(process.env.REACT_APP_PODCAST_URL)
+      .then((response) => response.text())
+      .then((str) => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then((data) => {
+        const items = Array.from(data.querySelectorAll("item"));
+        this.setState({
+          rssCasts: items.map((item) => ({
+            image: item.querySelector("image").getAttribute("href"),
+            title: item.children[0].textContent,
+            episode: item.children[8].getAttribute("url"),
+            description: item.children[6].textContent.replace(/<[^>]*>/g, ""),
+          })),
         });
-
-        // document.body.insertAdjacentHTML("beforeend", html);
-      })
-    // .then.setState({rssCasts: data});
-  }
+      });
+  };
   render() {
-    console.log("the state", this.state)
     let rssFeed = this.state.rssCasts;
-    console.log("RSS FEED HERE", rssFeed.innerHTML)
-    console.log("TYPE OF RSSFEED", typeof rssFeed)
-    console.log("RSS FEED", rssFeed)
     if (rssFeed.children !== undefined) {
-      console.log("GETTING THE CHILDREN", rssFeed.lastElementChild.getAttribute("href"))
       return (
         <div>
-
           {/* {rssFeed.map(pod =>
             <div>
               <img src={pod.lastElementChild.getAttribute("href")} alt="" />
             </div>
           )} */}
         </div>
-      )
+      );
     } else {
-
-
-      return (
-        <div>
-          Loading...
-        </div>
-      )
+      return <Loader />
     }
-
   }
-
 }
