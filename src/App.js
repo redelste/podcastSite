@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { podList } from './components/people'
+// import { podList } from './components/people'
 import { Rss } from './components/Rss';
 import Pod from './components/Pod'
 const App = props => (

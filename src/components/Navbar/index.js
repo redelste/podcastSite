@@ -23,7 +23,7 @@ export default () => (
 
           </NavIcon>
           <NavText>
-            <Link className={styles.dataDisplay} to="/home"> Home </Link>
+            <Link className={styles.dataDisplay} to="/pods"> Home </Link>
           </NavText>
         </NavItem>
       </SideNav.Nav>

@@ -57,8 +57,6 @@ export class Rss extends Component {
               )}
             </Row>
           </Container>
-
-
         </div>
       );
     } else {
