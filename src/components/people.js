@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import {useLocation} from "react-router-dom";
-import FooterPage from './footer'
+import { BrowserRouter, Link, useLocation } from 'react-router-dom';
+import Footer from './Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/people.css'
 import {Row, Container, Col} from 'reactstrap';
 import HomeIcon from '@material-ui/icons/Home';
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+import logoRect from "./logo_rec.png"
 export class podList extends Component{
 
     constructor(props) {
@@ -25,10 +25,12 @@ export class podList extends Component{
             {
               name: "Episode 1",
               id: 24,
+              audio: "soundfile2"
             },
             {
               name: "Episode 2",
               id: 25,
+              audio:"soundfile2"
             },
 
           ]
@@ -41,7 +43,7 @@ export class podList extends Component{
           console.log(this.state.podcast.podcast)
           return (
               <div className="main-style">
-                <h1 className="titles title-color">99-100</h1>
+                <h1 className="titles title-color"><img src={logoRect} className="logo-rect"></img></h1>
                 <NavBar></NavBar>
                 <Pod info={this.state}></Pod>
                 <Container>
@@ -50,6 +52,7 @@ export class podList extends Component{
                        <Col>
                         <Link style={{ textDecoration: 'none' }} key={pod.name} to={{pathname:`/pod/${pod.id}`, state: pod}} className="remove-underline"> 
                           <div className="basic">
+                            <img src="" alt="Smiley face" className="episode-icon"/>
                             [{pod.name}] 
                           </div>
                         </Link>
@@ -58,12 +61,14 @@ export class podList extends Component{
                     )}
                   </Row> 
                 </Container>
-                <FooterPage></FooterPage>
+                    <Footer />
               </div>
             )
         } else {
           return (
-            <p> NOT FOUND</p>
+            <p> NOT FOUND
+    
+            </p>
           )
         }
       }
@@ -97,7 +102,7 @@ export function Pod(props){
           <source src={state.audio}></source>
         </audio>
         </div>
-        <FooterPage></FooterPage>
+        <Footer />
 
         </div>
       )

@@ -1,0 +1,40 @@
+.dataDisplay{
+    color: #53b0ff !important;
+    text-align: center;
+    font-size: x-large;
+}
+
+.colorForce{
+    background-color: #ffe554 !important;
+    color: #53b0ff !important;
+}
+
+
+.navColors{
+    background: #ffe554 !important;
+}
+
+.navColors:hover{
+    transition: background-color 0.5s ease !important;
+    background-color: #fff1a1 !important;
+}
+
+.greenColor{
+    color: green;
+}
+
+.pBackground{
+    background-color: #ffcf4a;
+}
+
+/* Formatting of the titles.  */
+.titles{
+    text-align: center;
+    letter-spacing: 3px;
+}
+/* Color of the titles: H1, H2 etc. */
+.title-color{
+    /* color: #ff759c; */
+    color: white;
+    background: #ff759c;
+}

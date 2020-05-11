@@ -4,18 +4,16 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { podList, Pod } from './components/people'
-import { About} from './components/about'
-import { rss } from './components/rss';
-
-const App = () => (
+import { podList } from './components/people'
+import { Rss } from './components/Rss';
+import Pod from './components/Pod'
+const App = props => (
   <div>
     <Router>
       <div>
-        <Route path="/home" exact component={podList} />
-        <Route path="/about" exact component={About}/>
-        <Route path="/pod/:id" exact component={Pod} />
-        <Route path="/pods/" exact component={rss} />
+        {/* <Route path="/about" exact component={About}/> */}
+        <Route path="/pod/:title" exact component={Pod} />
+        <Route path="/pods/" exact component={Rss} />
       </div>
     </Router>
 
